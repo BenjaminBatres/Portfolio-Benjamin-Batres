@@ -8,14 +8,14 @@ import skinstric from "../../assets/images/skinstric-images/Skinstric-img.png";
 import ecommercestore from "../../assets/images/e-commerce-images/e-commerce-project.png";
 import ultramarket from "../../assets/images/ultraverse-images/Ultraverse-market-img.png";
 import summarist from "../../assets/images/summarist-images/Summarist-img.png";
-import movieapi from "../../assets/images/movieAPi-images/MovieAPI.jpg";
+import movieapi from "../../assets/images/movieApi-images/MovieAPI.jpg";
 // Hover images for projects
 import saveSpendHover from "../../assets/images/saveSpend-images/SaveSpend-hover.png";
 import skinstricHover from "../../assets/images/skinstric-images/Skinstric-hover.png";
 import ecommercestoreHover from "../../assets/images/e-commerce-images/E-commerce-store-hover.png";
 import ultramarketHover from "../../assets/images/ultraverse-images/Ultraverse-market-hover.png";
 import summaristHover from "../../assets/images/summarist-images/Summarist-hover.png";
-import movieapiHover from "../../assets/images/movieAPi-images/MovieAPI-hover.png";
+import movieapiHover from "../../assets/images/movieApi-images/MovieAPI-hover.png";
 
 export default function ProjectSection({ isLoading }) {
   const projects = [
