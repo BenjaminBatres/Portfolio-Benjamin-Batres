@@ -1,36 +1,41 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Ben Batres | Frontend Developer
+Hi! I’m Ben. I tackle complex engineering challenges daily, collaborating with talented software engineers to build high-performance, accessible, and visually stunning web applications. My mission is to continuously advance my expertise in web development and use technology to drive societal progress.
 
-## Getting Started
+This repository contains the source code for my personal portfolio website, showcasing my skills, experience, and the digital products I've built.
 
-First, run the development server:
+![PortfolioImage](./src/app/assets/images/ReadMe-img.png)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🛠️ Tech Stack & Skills
+- Frameworks & Libraries: React, Next.js, Redux
+- Styling & Animation: Tailwind CSS, CSS3, HTML5, Framer Motion
+- Languages & Tools: JavaScript (ES6+), Git, GitHub
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 💻 Featured Projects
+### 📱 SaveSpend
+- **Description:** A clean, intuitive expense tracking application designed to help users take control of their finances and visualize their spending habits.
+- Tech Stack: React, Tailwind CSS
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+### 🧪 Skinstric
+- **Description:** An advanced, AI-powered skincare analysis platform that delivers sophisticated, personalized routine recommendations.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Tech Stack: Next.js, Tailwind CSS, AI Integration
 
-## Learn More
+### 🛍️ Designer E-Commerce Store
+- **Description:** A sleek, high-fidelity mock e-commerce platform built to simulate a premium online shopping experience.
 
-To learn more about Next.js, take a look at the following resources:
+- Tech Stack: React, Redux, Tailwind CSS
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 🎨 Ultraverse Market
+- **Description:** A modern, dynamic NFT Marketplace platform for discovering, tracking, and showcasing digital collectibles.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Tech Stack: Next.js, Tailwind CSS
 
-## Deploy on Vercel
+### 🎧 Summarist
+- **Description:** An online audio-first platform providing quick, concise summaries of popular books and audiobooks.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Tech Stack: React, Redux
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### 🎬 Movie Api
+- **Description:** A dynamic web application that fetches and displays real-time cinematic data utilizing third-party movie APIs.
+
+- Tech Stack: JavaScript, CSS, API Integration
