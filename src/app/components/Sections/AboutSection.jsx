@@ -96,7 +96,7 @@ export default function AboutSection({ isLoading }) {
               isLoading={isLoading}
               className={"text-2xl xl:text-3xl"}
               text={
-                "I take on extremely difficult engineering problems on a daily basis in a team consisting of some of the most talented and experienced software engineers."
+                "I enjoy solving challenging engineering problems and building scalable, user-focused applications."
               }
               sec={
                 "Continuously working towards improving my knowledge and skills to develop technologies that contribute to the betterment of society."
