@@ -47,7 +47,7 @@ export default function Header() {
           initial={{ opacity: 0, y: -120 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 2.1, duration: 0.8 }}
-          className="absolute right-0 top-0 mt-2.5 2xl:mt-4.5 py-5 md:py-10 px-5 md:px-15 2xl:px-25.5 min-h-15"
+          className="absolute right-0 top-0 mt-2.5 2xl:mt-4.5 py-5 md:py-10 px-5 md:px-15 2xl:px-25.5 min-h-15 z-25"
         >
           <ul
             className={`flex gap-4 items-center z-10 ease-linear duration-400 ${isOpen ? "opacity-0 pointer-events-none" : "opacity-100 delay-500"}`}

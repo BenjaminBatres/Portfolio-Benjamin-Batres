@@ -83,7 +83,7 @@ export default function AboutSection({ isLoading }) {
   return (
     <section
       id="about"
-      className="py-20 px-5 md:px-15 h-screen flex items-center"
+      className="py-20 px-5 md:px-15 min-h-screen flex items-center"
     >
       <div className="max-w-400 mx-auto ">
         <div className="rounded-[20px] flex items-center gap-2 py-2 px-4 bg-[#0d0d0d] w-fit mb-4 shadow-section-title-container">

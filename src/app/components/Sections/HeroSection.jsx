@@ -7,7 +7,7 @@ import ScrollDownAnimation from "../Animations/ScrollDownAnimation";
 
 export default function HeroSection({ isLoading }) {
   return (
-    <section className="py-15 px-5 h-screen relative">
+    <section className="min-h-screen pt-20 px-5">
       <div className="flex flex-col justify-center items-center mt-[10vh] 2xl:mt-[15vh]">
         <RevealText
           isLoading={isLoading}
