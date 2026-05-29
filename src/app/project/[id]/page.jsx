@@ -12,7 +12,7 @@ import projectsInfo from "@/app/data/project-info";
 export default function Page() {
   const { id } = useParams();
   const [isLoading, setIsLoading] = useState(true);
-  const projectId = projectsInfo.find((project) => project.id)?.id
+  const projectId = projectsInfo.find((project) => project.id === id)?.id
   if (id !== projectId) {
     notFound()
   }
