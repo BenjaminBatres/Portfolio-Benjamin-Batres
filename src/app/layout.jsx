@@ -51,16 +51,17 @@ export default function RootLayout({ children }) {
         spaceMoto.variable
       )}
     >
-      <body className="relative min-h-screen">
-        <div className="fixed inset-0 -z-10">
-          <StarsBackground />
-        </div>
-        <main className="relative">
-          <Header />
-          {children}
-          <Footer />
-          </main>
-      </body>
+      <body className="relative min-h-screen bg-black overflow-x-hidden">
+  <div className="fixed inset-0 -z-10">
+    <StarsBackground />
+  </div>
+
+  <main className="relative z-10">
+    <Header />
+    {children}
+    <Footer />
+  </main>
+</body>
     </html>
   );
 }

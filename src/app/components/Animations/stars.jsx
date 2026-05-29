@@ -87,7 +87,7 @@ export function StarsBackground({
     <div
       data-slot="stars-background"
       className={cn(
-        "relative overflow-hidden h-full w-full bg-[radial-gradient(ellipse_at_bottom,_#262626_0%,_#000_100%)]",
+        "relative overflow-hidden min-h-full w-full bg-[radial-gradient(ellipse_at_bottom,_#262626_0%,_#000_100%)]",
         className,
       )}
       onMouseMove={handleMouseMove}
