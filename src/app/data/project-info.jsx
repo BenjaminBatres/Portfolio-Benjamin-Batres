@@ -118,7 +118,7 @@ const projectsInfo = [
       },
       {
         title: "Timeline",
-        subTitle: "Mar 2025 - Apr 2025",
+        subTitle: "Jan 2026 - Jan 2026",
       },
     ],
     images: [designer1, designer2, designer4, designer3],
