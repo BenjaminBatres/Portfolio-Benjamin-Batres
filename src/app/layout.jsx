@@ -1,15 +1,10 @@
-import {
-  Geist,
-  Geist_Mono,
-  Space_Mono,
-} from "next/font/google";
+import { Geist, Geist_Mono, Space_Mono } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/app/lib/utils";
 import localFont from "next/font/local";
 import { StarsBackground } from "./components/Animations/stars";
 import Header from "./components/Header";
 import Footer from "./components/Sections/Footer";
-
 
 const satoshi = localFont({
   src: "./fonts/Satoshi-Variable.ttf",
@@ -18,9 +13,9 @@ const satoshi = localFont({
 
 const spaceMoto = Space_Mono({
   variable: "--font-space-mono",
-  subsets: ['latin'],
-  weight: ["400", "700"]
-})
+  subsets: ["latin"],
+  weight: ["400", "700"],
+});
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -48,20 +43,20 @@ export default function RootLayout({ children }) {
         geistSans.variable,
         geistMono.variable,
         satoshi.variable,
-        spaceMoto.variable
+        spaceMoto.variable,
       )}
     >
       <body className="relative min-h-screen bg-black overflow-x-hidden">
-  <div className="fixed inset-0 -z-10">
-    <StarsBackground />
-  </div>
+        <div className="fixed inset-0 -z-10">
+          <StarsBackground />
+        </div>
 
-  <main className="relative z-10">
-    <Header />
-    {children}
-    <Footer />
-  </main>
-</body>
+        <main className="relative z-10">
+          <Header />
+          {children}
+          <Footer />
+        </main>
+      </body>
     </html>
   );
 }

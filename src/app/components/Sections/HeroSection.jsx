@@ -39,7 +39,8 @@ export default function HeroSection({ isLoading }) {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ delay: 2.2, duration: 0.6 }}
-            href=""
+            href="/Resume/Benjamin_Batres-Resume.pdf"
+            download={"Benjamin_Batres-Resume.pdf"}
             className='rounded-[16px] md:text-lg p-0.5 bg-right-gradient relative after:content-[""] after:absolute after:w-[65%] after:h-[60%] after:rounded-[120px] after:top-0 after:right-0 after:shadow-[0_0_20px_#ffffff38] after:z-1 group'
           >
             <div className="absolute w-17.5 h-full rounded-[16px] bottom-0 left-0 shadow-[-10px_10px_30px_#ffffff38] bg-left-gradient"></div>
