@@ -1,22 +1,22 @@
 "use client";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useState } from "react";
 import { LuSendHorizontal } from "react-icons/lu";
 import ButtonLoadingAnimation from "../Animations/ButtonLoadingAnimation";
 import toast, { Toaster } from "react-hot-toast";
-import Pfp from "../../assets/images/Hero-img.jpg";
-import { motion, useAnimation, useInView } from "motion/react";
+import { motion } from "motion/react";
 import emailjs from "@emailjs/browser";
-import Image from "next/image";
-export default function ContactSection({ isLoading }) {
+import { MdOutlineEmail } from "react-icons/md";
+import { FaGithub } from "react-icons/fa";
+import { FaLinkedin } from "react-icons/fa";
+import Link from "next/link";
+import RevealParaText from "../ui/RevalParaText";
+export default function ContactSection() {
   const [loading, setLoading] = useState(false);
   const [fieldValues, setFieldValues] = useState({
     name: false,
     email: false,
     message: false,
   });
-  const containerRef = useRef(null);
-  const isInView = useInView(containerRef);
-  const mainControls = useAnimation();
   const inputFields = [
     {
       label: "Name",
@@ -37,9 +37,20 @@ export default function ContactSection({ isLoading }) {
       type: "textarea",
       id: "message",
       placeholder: "Your message",
-      rows: "8",
+      rows: "5",
       wrap: "soft",
       stateKey: "message",
+    },
+  ];
+
+  const socials = [
+    {
+      path: "https://github.com/benjaminbatres",
+      icon: <FaGithub className="text-2xl text-secondary" />,
+    },
+    {
+      path: "https://linkedin.com/in/benjaminbatres",
+      icon: <FaLinkedin className="text-2xl text-secondary" />,
     },
   ];
 
@@ -190,62 +201,98 @@ export default function ContactSection({ isLoading }) {
     }
   };
 
-  useEffect(() => {
-    if (!isLoading && isInView) {
-      mainControls.start("visible");
-    }
-  }, [isInView, mainControls, isLoading]);
-
   return (
     <section id="contact" className="py-20 px-5 md:px-15 overflow-hidden">
       <Toaster />
-      <div className="max-w-400 mx-auto grid md:grid-cols-2 gap-10">
-        <div className="flex flex-col items-center md:items-start gap-8 justify-between md:py-5">
-          <motion.div
-            ref={containerRef}
-            animate={mainControls}
-            initial="hidden"
-            variants={{
-              hidden: { opacity: 0 },
-              visible: {
-                opacity: 1,
-              },
-            }}
-            transition={{ duration: 0.6 }}
-          >
-            <h3 className="border border-red-500 w-fit py-1 px-3 rounded-full text-lg uppercase font-space-mono bg-black/50 mb-2">
+      <div className="max-w-380 mx-auto grid lg:grid-cols-2 gap-10">
+        <div className="md:py-5">
+          <div className="mb-10">
+            <motion.h3
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ delay: 0.2, duration: 0.6 }}
+              className="border border-red-500 w-fit py-1 px-3 rounded-full text-lg uppercase  bg-black/50 mb-3"
+            >
               Get in touch
-            </h3>
-            <h2 className="font-space-mono text-3xl">Let's work together</h2>
-          </motion.div>
-          <motion.figure
-            animate={mainControls}
-            initial="hidden"
-            variants={{
-              hidden: { opacity: 0 },
-              visible: {
-                opacity: 1,
-              },
-            }}
-            transition={{ delay: 0.4, duration: 0.6 }}
+            </motion.h3>
+            <motion.h2
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ delay: 0.3, duration: 0.6 }}
+              className="font-semibold text-5xl mb-6"
+            >
+              Let's work
+              <span className="text-red-500 font-bold"> together</span>
+            </motion.h2>
+            <RevealParaText
+              text={
+                "Passionate about creating clean, user-focused solutions and continuously expanding my technical skills. Seeking opportunities to contribute to innovative teams, solve real-world problems, and grow as a software engineer."
+              }
+              className={
+                "text-xl font-medium text-secondary lg:max-w-lg leading-none"
+              }
+            />
+          </div>
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ delay: 0.5, duration: 0.6 }}
+            className="flex items-center gap-4 mb-10"
           >
-            <Image src={Pfp} alt="" className="rounded-[10px]" />
-          </motion.figure>
+            <div className="flex items-center justify-center h-13 w-13 shadow-section-title-container bg-[#0d0d0d] rounded-full">
+              <MdOutlineEmail className="text-3xl text-red-500" />
+            </div>
+            <div>
+              <p className="text-sm font-medium text-secondary">Email Me</p>
+              <Link
+                href="mailto:me@benjaminbatres.dev"
+                className="text-xl font-medium text-secondary hover:text-red-500 duration-300"
+              >
+                me@benjaminbatres.dev
+              </Link>
+            </div>
+          </motion.div>
+
+          <motion.h2
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ delay: 0.5, duration: 0.6 }}
+            className="text-secondary font-medium text-[17px] mb-4"
+          >
+            Connect with me
+          </motion.h2>
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ delay: 0.6, duration: 0.6 }}
+            className="flex items-center gap-5"
+          >
+            {socials.map((social, id) => (
+              <Link
+                href={social.path}
+                key={id}
+                target="_blank"
+                className="flex items-center justify-center h-13 w-13 shadow-section-title-container bg-[#0d0d0d] rounded-full hover:scale-110 duration-300"
+              >
+                {social.icon}
+              </Link>
+            ))}
+          </motion.div>
         </div>
         <motion.div
-          animate={mainControls}
-          initial="hidden"
-          variants={{
-            hidden: { opacity: 0 },
-            visible: {
-              opacity: 1,
-            },
-          }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, margin: "-100px" }}
           transition={{ delay: 0.6, duration: 0.6 }}
-          className="relative"
+          className="relative "
         >
           {inputFields.map((field, id) => (
-            <div key={id} className="font-space-mono flex flex-col gap-6">
+            <div key={id} className=" flex flex-col gap-4">
               <label className="text-xl">{field.label}</label>
               {field.type === "textarea" ? (
                 <textarea
@@ -279,7 +326,7 @@ export default function ContactSection({ isLoading }) {
           ))}
           <button
             onClick={sendEmail}
-            className="py-4 w-full mt-8 rounded-full bg-red-500 flex justify-center items-center gap-2 text-lg md:text-2xl font-space-mono hover:bg-transparent duration-300 cursor-pointer"
+            className="py-4 w-full mt-8 rounded-full bg-red-500 flex justify-center items-center gap-2 text-lg md:text-2xl  hover:bg-transparent duration-300 cursor-pointer"
           >
             Submit <LuSendHorizontal className="text-xl" />
           </button>

@@ -1,22 +1,14 @@
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import projectsInfo from "../../data/project-info";
 import RevealText from "../ui/RevealText";
 import Link from "next/link";
 import { FiExternalLink } from "react-icons/fi";
 import { PiStarFourFill } from "react-icons/pi";
 import RevealParaText from "../ui/RevalParaText";
-import { motion, useAnimation, useInView } from "motion/react";
+import { motion } from "motion/react";
 
-export default function ProjectOverviewSection({ id, isLoading }) {
-  const containerRef = useRef(null);
-  const isInView = useInView(containerRef);
-  const mainControls = useAnimation();
-  useEffect(() => {
-    // Start animation when the component is in view
-    if (!isLoading && isInView) {
-      mainControls.start("visible");
-    }
-  }, [isInView, isLoading, mainControls]);
+export default function ProjectOverviewSection({ id }) {
+
   return (
     <section className="pt-9 pb-6 md:py-20 px-5 md:px-15">
       <div className="max-w-360 mx-auto">
@@ -36,11 +28,9 @@ export default function ProjectOverviewSection({ id, isLoading }) {
                       className={
                         "text-lg uppercase text-[#bdbdbd] font-space-mono"
                       }
-                      isLoading={isLoading}
                     />
                   </div>
                   <RevealText
-                    isLoading={isLoading}
                     text={project.subtitle}
                     className={`tracking-tighter ${project.id === "summarist" ? "text-[32px] tablet:text-4xl lg:text-[42px]" : "tablet:text-[64px] text-[32px]"} leading-none font-medium`}
                   />
@@ -51,16 +41,10 @@ export default function ProjectOverviewSection({ id, isLoading }) {
                 <div className="grid grid-cols-2 gap-5">
                   {project.info.map((info, id) => (
                     <motion.div
-                      ref={containerRef}
-                      animate={mainControls}
-                      initial="hidden"
-                      variants={{
-                        hidden: { opacity: 0 },
-                        visible: {
-                          opacity: 1,
-                        },
-                      }}
-                      transition={{ duration: 0.7 }}
+                      initial={{ opacity: 0 }}
+                      whileInView={{ opacity: 1 }}
+                      viewport={{ once: true, margin: "-100px" }}
+                      transition={{ delay: 0.4, duration: 0.7 }}
                       key={id}
                       className="bg-[#282828] rounded-2xl p-4 space-y-1.5 nth-[1]:col-span-2 md:nth-[1]:col-span-1 nth-[2]:col-span-2 md:nth-[2]:col-span-1"
                     >
@@ -83,16 +67,9 @@ export default function ProjectOverviewSection({ id, isLoading }) {
                   .filter((project) => project.id === id)
                   .map((project) => (
                     <motion.div
-                      ref={containerRef}
-                      animate={mainControls}
-                      initial="hidden"
-                      variants={{
-                        hidden: { opacity: 0 },
-                        visible: {
-                          opacity: 1,
-                          y: 0,
-                        },
-                      }}
+                      initial={{ opacity: 0 }}
+                      whileInView={{ opacity: 1 }}
+                      viewport={{ once: true, margin: "-100px" }}
                       transition={{ delay: 0.4, duration: 0.7 }}
                       key={project.id}
                       className="space-y-6 border-b border-[#282828] pb-6"

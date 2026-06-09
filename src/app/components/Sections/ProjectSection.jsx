@@ -1,3 +1,4 @@
+'use client'
 import React, { useEffect, useRef } from "react";
 import { IoMdRadioButtonOn } from "react-icons/io";
 import { motion, useAnimation, useInView } from "motion/react";
@@ -17,7 +18,7 @@ import ultramarketHover from "../../assets/images/ultraverse-images/Ultraverse-m
 import summaristHover from "../../assets/images/summarist-images/Summarist-hover.png";
 import movieapiHover from "../../assets/images/movieApi-images/MovieAPI-hover.png";
 
-export default function ProjectSection({ isLoading }) {
+export default function ProjectSection() {
   const projects = [
     {
       id: "save-spend",
@@ -104,13 +105,13 @@ export default function ProjectSection({ isLoading }) {
   };
 
   useEffect(() => {
-    if (!isLoading && isInView) {
+    if (isInView) {
       controls.start("show");
     }
-  }, [isInView, isLoading, controls]);
+  }, [isInView, controls]);
   return (
     <section id="projects" className="py-25 px-5 md:px-15">
-      <div className="max-w-400 mx-auto">
+      <div className="max-w-380 mx-auto">
         <div className="rounded-[20px] flex items-center gap-2 py-2 px-4 bg-[#0d0d0d] w-fit mb-4 shadow-section-title-container">
           <IoMdRadioButtonOn className="text-sm" />
           <h2 className="z-10">Projects</h2>

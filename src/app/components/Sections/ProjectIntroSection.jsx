@@ -1,20 +1,14 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import projectInfo from "../../data/project-info";
 import { GoArrowLeft } from "react-icons/go";
 import Image from "next/image";
 import Link from "next/link";
 import ScrollDownAnimation from "../Animations/ScrollDownAnimation";
 
-import { motion, useAnimation, useInView } from "motion/react";
+import { motion } from "motion/react";
 import { useRouter } from "next/navigation";
 
-export default function ProjectIntroSection({ id, isLoading }) {
-  const containerRef = useRef(null);
-  const isInView = useInView(containerRef);
-  const mainControls = useAnimation();
-  const containerRef2 = useRef(null);
-  const isInView2 = useInView(containerRef2);
-  const mainControls2 = useAnimation();
+export default function ProjectIntroSection({ id }) {
   const [targetSection, setTargetSection] = useState("");
   const router = useRouter();
   const scrollToSection = (sectionId) => {
@@ -39,19 +33,16 @@ export default function ProjectIntroSection({ id, isLoading }) {
     }
   }, [targetSection]);
 
-  useEffect(() => {
-    // Start animation when the component is in view
-    if (!isLoading && isInView) {
-      mainControls.start("visible");
-    }
-    if (!isLoading && isInView2) {
-      mainControls2.start("visible");
-    }
-  }, [isInView, isInView2, isLoading, mainControls, mainControls2]);
   return (
     <section className="pt-30 md:pt-40 px-5 md:px-15">
       <div className="max-w-360 mx-auto">
-        <div className="flex justify-between items-center mb-8">
+        <motion.div
+          initial={{ opacity: 0, x: -100 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.7 }}
+          className="flex justify-between items-center mb-8"
+        >
           <Link
             href={"/"}
             onClick={(e) => {
@@ -72,38 +63,24 @@ export default function ProjectIntroSection({ id, isLoading }) {
             />
             <p className="text-secondary/70 text-sm">Scroll to explore</p>
           </div>
-        </div>
+        </motion.div>
         {projectInfo
           .filter((project) => project.id === id)
           .map((project) => (
             <div key={project.id}>
               <motion.h2
-                ref={containerRef}
-                animate={mainControls}
-                initial="hidden"
-                variants={{
-                  hidden: { opacity: 0, y: 100 },
-                  visible: {
-                    opacity: 1,
-                    y: 0,
-                  },
-                }}
+                initial={{ opacity: 0, y: 100 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.4 }}
                 className={`text-5xl ${id === "designer-product" ? "text-5xl md:text-7xl lg:text-8xl" : "md:text-8xl lg:text-[120px]"} font-bold uppercase mb-5`}
               >
                 {project.name}
               </motion.h2>
               <motion.div
-                ref={containerRef}
-                animate={mainControls}
-                initial="hidden"
-                variants={{
-                  hidden: { opacity: 0 },
-                  visible: {
-                    opacity: 1,
-                    y: 0,
-                  },
-                }}
+                initial={{ opacity: 0, y: 100 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
                 transition={{ delay: 0.4, duration: 0.7 }}
                 className="flex justify-between items-center mb-5"
               >
@@ -121,16 +98,9 @@ export default function ProjectIntroSection({ id, isLoading }) {
                 </div>
               </motion.div>
               <motion.figure
-                ref={containerRef2}
-                animate={mainControls2}
-                initial="hidden"
-                variants={{
-                  hidden: { opacity: 0 },
-                  visible: {
-                    opacity: 1,
-                    y: 0,
-                  },
-                }}
+                initial={{ opacity: 0, y: 100 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
                 transition={{ delay: 0.4, duration: 0.7 }}
                 className="lg:h-200 overflow-hidden rounded-[32px]"
               >

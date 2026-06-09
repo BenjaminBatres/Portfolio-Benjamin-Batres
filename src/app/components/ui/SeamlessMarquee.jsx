@@ -1,29 +1,16 @@
-import React, { useEffect, useRef } from "react";
-import { motion, useAnimation, useInView } from "motion/react";
+import React from "react";
+import { motion } from "motion/react";
 import { PiStarFourFill } from "react-icons/pi";
 import projectsInfo from "@/app/data/project-info";
 
-export default function SeamlessMarquee({ id, isLoading }) {
+export default function SeamlessMarquee({ id, }) {
   const projectName = projectsInfo.find((project) => project.id === id)?.name;
-  const containerRef = useRef(null);
-  const isInView = useInView(containerRef);
-  const controls = useAnimation();
-  useEffect(() => {
-    if (!isLoading && isInView) {
-      controls.start("visible");
-    }
-  }, [isInView, isLoading, controls]);
+
   return (
     <motion.div
-      ref={containerRef}
-      animate={controls}
-      initial="hidden"
-      variants={{
-        hidden: { opacity: 0 },
-        visible: {
-          opacity: 1,
-        },
-      }}
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true, margin: "-100px" }}
       transition={{ duration: 0.7 }}
       className="overflow-hidden whitespace-nowrap w-full py-4 relative"
     >

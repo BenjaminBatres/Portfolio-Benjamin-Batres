@@ -38,6 +38,7 @@ export default function Project({ project, item }) {
             <Image
               src={darkBackground}
               alt=""
+              loading="eager"
               className="object-center object-cover size-full rounded-[24px]"
             />
           </div>
@@ -47,6 +48,7 @@ export default function Project({ project, item }) {
           <Image
             src={project.hoverImage}
             alt=""
+            loading="eager"
             className="size-full object-cover"
           />
         </div>
@@ -54,6 +56,7 @@ export default function Project({ project, item }) {
       <Image
         src={project.image}
         alt={project.name}
+        loading="eager"
         className="absolute inset-0 -z-10 h-full w-full object-cover group-hover:scale-110 transition-transform duration-350 "
       />
     </motion.a>

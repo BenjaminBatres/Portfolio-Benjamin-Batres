@@ -18,17 +18,16 @@ export default function RevealText({
 
   useEffect(() => {
     // Start animation when the component is in view
-    if (!isLoading && isInView) {
+    if ( isInView) {
       controls.start("visible");
     }
-  }, [isInView, isLoading, controls]);
+  }, [isInView, controls]);
 
   return (
     <motion.p
       initial="hidden"
       animate={controls}
-      ref={containerRef}
-      // whileInView="visible"
+      ref={containerRef}     
       viewport={{ once: true, margin: "-150px" }} // 👈 triggers slightly earlier
       variants={{
         hidden: {},
@@ -38,8 +37,7 @@ export default function RevealText({
           },
         },
       }}
-      style={{ justifyContent: center }}
-      className="flex flex-wrap gap-2"
+      className={`flex flex-wrap gap-2 ${center}`}
     >
       {words.map((word, i) => (
         <motion.span

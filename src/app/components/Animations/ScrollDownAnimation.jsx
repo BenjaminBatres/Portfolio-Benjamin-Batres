@@ -1,28 +1,26 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
-export default function ScrollDownAnimation({width, height, bottom, hidden}) {
-  
+export default function ScrollDownAnimation({ width, height, bottom, hidden }) {
   const StyledWrapper = styled.div`
     .scrolldown {
       --color: white;
-      --sizeX: ${width ? width : '30px'};
-      --sizeY: ${height ? height : '50px'};
+      --sizeX: ${width || "30px"};
+      --sizeY: ${height || "50px"};
       position: relative;
       width: var(--sizeX);
       height: var(--sizeY);
-      margin-left: var(sizeX / 2);
+      margin-left: calc(var(--sizeX) / 2);
       border: calc(var(--sizeX) / 10) solid var(--color);
       border-radius: 50px;
       box-sizing: border-box;
-      margin-bottom: ${hidden ? '0' : '16px'};
-      cursor: pointer;
+      margin-bottom: ${hidden || "16px"};
     }
-  
+
     .scrolldown::before {
       content: "";
       position: absolute;
-      bottom: ${bottom ? bottom : '33px'};
+      bottom: ${bottom || "33px"};
       left: 50%;
       width: 6px;
       height: 6px;
@@ -33,30 +31,30 @@ export default function ScrollDownAnimation({width, height, bottom, hidden}) {
       box-sizing: border-box;
       box-shadow: 0px -5px 3px 1px #2a547066;
     }
-  
+
     @keyframes scrolldown-anim {
       0% {
         opacity: 0;
         height: 6px;
       }
-  
+
       40% {
         opacity: 1;
         height: 10px;
       }
-  
+
       80% {
         transform: translate(0, 20px);
         height: 10px;
         opacity: 0;
       }
-  
+
       100% {
         height: 3px;
         opacity: 0;
       }
     }
-  
+
     .chevrons {
       padding: 6px 0 0 0;
       margin-left: -3px;
@@ -66,7 +64,7 @@ export default function ScrollDownAnimation({width, height, bottom, hidden}) {
       flex-direction: column;
       align-items: center;
     }
-  
+
     .chevrondown {
       margin-top: -6px;
       position: relative;
@@ -77,32 +75,34 @@ export default function ScrollDownAnimation({width, height, bottom, hidden}) {
       height: 10px;
       transform: rotate(45deg);
     }
-  
+
     .chevrondown:nth-child(odd) {
       animation: pulse54012 500ms ease infinite alternate;
     }
-  
+
     .chevrondown:nth-child(even) {
       animation: pulse54012 500ms ease infinite alternate 250ms;
     }
-  
+
     @keyframes pulse54012 {
       from {
         opacity: 0;
       }
-  
+
       to {
         opacity: 0.5;
       }
-    }`;
+    }
+  `;
+
   return (
-    <StyledWrapper >
+    <StyledWrapper>
       <div className="scrolldown">
         {!hidden && (
-        <div className="chevrons">
-          <div className="chevrondown" />
-          <div className="chevrondown" />
-        </div>
+          <div className="chevrons">
+            <div className="chevrondown" />
+            <div className="chevrondown" />
+          </div>
         )}
       </div>
     </StyledWrapper>

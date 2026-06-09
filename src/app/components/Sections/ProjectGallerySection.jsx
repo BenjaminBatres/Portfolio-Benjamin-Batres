@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from "react";
 import projectsInfo from "@/app/data/project-info";
 import Image from "next/image";
 import { motion, useAnimation, useInView } from "motion/react";
-export default function ProjectGallerySection({ id, isLoading }) {
+export default function ProjectGallerySection({ id }) {
   const containerRef = useRef(null);
   const isInView = useInView(containerRef);
   const mainControls = useAnimation();
@@ -30,10 +30,10 @@ export default function ProjectGallerySection({ id, isLoading }) {
 
   useEffect(() => {
     // Start animation when the component is in view
-    if (!isLoading && isInView) {
+    if ( isInView) {
       mainControls.start("show");
     }
-  }, [isInView, isLoading, mainControls]);
+  }, [isInView, mainControls]);
 
   return (
     <section className="pb-8 px-5 md:px-15">
@@ -46,7 +46,6 @@ export default function ProjectGallerySection({ id, isLoading }) {
               initial="hidden"
               variants={container}
               animate={mainControls}
-              viewport={{ once: true, margin: "-100px" }}
               key={project.id}
               className="grid grid-cols-2 gap-3 md:gap-6"
             >
@@ -59,6 +58,7 @@ export default function ProjectGallerySection({ id, isLoading }) {
                   <Image
                     src={image}
                     alt=""
+                    loading="eager"
                     className="object-cover object-center h-full w-full"
                   />
                 </motion.figure>

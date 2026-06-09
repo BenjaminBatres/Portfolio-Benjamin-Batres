@@ -12,10 +12,6 @@ export default function Menu({ isOpen, setIsOpen }) {
       name: "Home",
     },
     {
-      path: "#about",
-      name: "About",
-    },
-    {
       path: "#projects",
       name: "Projects",
     },
@@ -89,8 +85,8 @@ export default function Menu({ isOpen, setIsOpen }) {
     <div
       className={`${isOpen ? "opacity-100 bg-black" : "opacity-0 pointer-events-none delay-450"} fixed transition-all ease-linear duration-600 h-full w-full z-20 inset-0`}
     >
-      <div className="px-5 md:px-14 pt-30 sm:py-40">
-        <div className="max-w-400 mx-auto">
+      <div className="px-5 md:px-15 2xl:px-25.5 pt-30 sm:py-40">
+
           <ul className="space-y-1">
             <AnimatePresence>
               {isOpen && (
@@ -125,7 +121,6 @@ export default function Menu({ isOpen, setIsOpen }) {
             </AnimatePresence>
           </ul>
         </div>
-      </div>
     </div>
   );
 }
