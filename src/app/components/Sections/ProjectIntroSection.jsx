@@ -36,14 +36,12 @@ export default function ProjectIntroSection({ id }) {
   return (
     <section className="pt-30 md:pt-40 px-5 md:px-15">
       <div className="max-w-360 mx-auto">
-        <motion.div
-          initial={{ opacity: 0, x: -100 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.7 }}
-          className="flex justify-between items-center mb-8"
-        >
-          <Link
+        <div className="flex justify-between items-center mb-8">
+          <motion.a
+            initial={{ opacity: 0, x: -100 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "150px" }}
+            transition={{ duration: 0.7 }}
             href={"/"}
             onClick={(e) => {
               e.preventDefault();
@@ -53,8 +51,14 @@ export default function ProjectIntroSection({ id }) {
             className="bg-[#282828] w-12 h-12 md:h-20 md:w-20 rounded-full flex items-center justify-center"
           >
             <GoArrowLeft className="text-2xl md:text-4xl" />
-          </Link>
-          <div className="md:hidden flex items-center gap-3">
+          </motion.a>
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, margin: "150px" }}
+            transition={{ duration: 0.7 }}
+            className="md:hidden flex items-center gap-3"
+          >
             <ScrollDownAnimation
               width={"20px"}
               height={"30px"}
@@ -62,8 +66,8 @@ export default function ProjectIntroSection({ id }) {
               hidden={true}
             />
             <p className="text-secondary/70 text-sm">Scroll to explore</p>
-          </div>
-        </motion.div>
+          </motion.div>
+        </div>
         {projectInfo
           .filter((project) => project.id === id)
           .map((project) => (
