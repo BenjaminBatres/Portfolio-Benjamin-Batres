@@ -20,7 +20,7 @@ export default function Header() {
       icon: <FaLinkedin />,
     },
     {
-      path: "/Resume/Benjamin_Batres-Resume.pdf",
+      path: "/Resume/Ben_Batres-CV.pdf",
       name: "Resume",
       icon: <FaFilePdf />,
     },
